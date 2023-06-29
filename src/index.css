@@ -1,0 +1,225 @@
+.input-form{
+  display: flex;
+  align-items: center;
+ justify-content: center;
+ margin-top: 3rem;
+  width: 100%;
+  /* margin: 3rem; */
+  flex-direction: column;
+  padding-top: 4rem;
+}
+.maininfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+}
+.reg-btn{
+  width: 70%;
+}
+.input-login input{
+background-color: white;
+width: 100%;
+border-radius: 3px;
+
+
+}
+.input-login input:focus{
+  border: none;
+}
+button{
+  height: 2rem;
+  border: none;
+  background-color: blueviolet;
+  color: whitesmoke;
+}
+button:focus{
+  border: none;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 35rem;
+  /* padding-bottom:10rem ; */
+}
+  .switch {
+    position: relative;
+    display: inline-block;
+   
+  
+    margin-left: 4rem;
+
+  }
+  /* Hide default HTML checkbox */
+  .switch input {
+    
+    
+    
+  }
+
+.sep{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  /* gap: 3rem; */
+  flex-wrap: wrap !important;
+}
+.sep-left{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1rem;
+  width: 30%;
+}
+@media only screen and (max-width: 600px) {
+  .sep {
+    display: flex;
+    align-items: center;
+    flex-direction: column !important;
+    width: 100%;
+
+  }
+  .sep-left{
+    width: 90%;
+  }
+}
+
+  /* home */
+  .main-home{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .main-left{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 2rem;
+  }
+
+
+  .home-seperate{
+    display: flex;
+  }
+  .social-users{
+  width: 5rem;
+  }
+  .home-top{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    gap: 2rem;
+    flex-direction: column;
+  }
+  .main-bottom button{
+background-color: brown;
+border-radius: 4px;
+height: 2rem;
+  }
+
+  .main-right img{
+    height: 25rem;
+    width: 100%;
+  }
+
+  .new-arrivals{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .buy{
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+  }
+
+  .top-single{
+    /* display: flex; */
+    width: 100%;
+  }
+  .single-card{
+    display: flex;
+  }
+  .images{
+    margin-top: 2rem;
+  }
+  .dis-line{
+    height: 1px;
+    background-color: red;
+    width: 100% !important;
+    position: absolute;
+    bottom: 50%;
+  }
+  .disPrice{
+    position: relative;
+    width: 4.5rem;
+  }
+  .images{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .admin-main{
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+  }
+  .admin-right{
+    background-color: blue;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 2rem;
+  }
+  .stats-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+  }
+  .stats-users{
+    background-color: white;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .home-line{
+    position: relative;
+  }
+  .dis-lines{
+    height: 1px;
+    background-color: red;
+    width: 60% !important;
+    position: absolute;
+    bottom: 50%;
+  }
