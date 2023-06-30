@@ -59,7 +59,22 @@ export default function ProfilePage() {
     }
     fetchData();
   }, []);
-
+  const followUser = () => {
+    fetch("https://hustle-kenya-7azi.onrender.com/users/follow", {
+      method: "put",
+      headers: {
+        "content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("profile"),
+      },
+      body: JSON.stringify({
+        followId: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+      });
+  };
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
@@ -93,7 +108,7 @@ export default function ProfilePage() {
                 />
 
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
+                  <MDBBtn onClick={() => followUser()}>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">
                     Message
                   </MDBBtn>
