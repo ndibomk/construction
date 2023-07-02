@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 const SocialPlace = () => {
     const[users,setUsers]=useState([])
+    const[loading, setLoading]=useState(true)
 
     function compare(a, b) {
         if (a._id < b._id) {
@@ -31,6 +33,23 @@ const SocialPlace = () => {
       }, []);
   return (
     <>
+
+{loading ? (
+          <Stack style={{
+            display: "flex",
+            marginTop: "5rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }} spacing={1}>
+            {/* For variant="text", adjust the height via font-size */}
+            <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+            {/* For other variants, adjust the size with `width` and `height` */}
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton variant="rectangular" width={210} height={60} />
+            <Skeleton variant="rounded" width={210} height={60} />
+          </Stack>
+        ) : (<>
+
     <h2 style={{textAlign:'center'}}> Social Place</h2>
     
 
@@ -38,8 +57,8 @@ const SocialPlace = () => {
         {users.map((user)=>{
 return(
     
-    <div class="col ">
-    <div class="card h-50">
+    <div className="col ">
+    <div className="card h-30">
     <Link to={`/social-profile/${user._id}`}>
       <img src={user.img} class="card-img-top" alt="Skyscrapers"/>
  
@@ -55,8 +74,12 @@ return(
       </Link>
       <div class="card-footer d-flex " style={{display:'flex',
     justifyContent:"space-around"}}>
+       <a
+                style={{ color: "black" }}
+                href={`https://wa.me/${users.phone}`}
+              >
       <button type="button" class="btn btn-success">Message</button>
-      <button type="button" class="btn btn-danger">Follow</button>
+      </a>
       </div>
     </div>
   </div>
@@ -69,7 +92,7 @@ return(
  
  
  
- 
+
  
  
  
@@ -106,8 +129,10 @@ return(
     {/* </div> */}
   {/* </div> */}
 </div>
-
+</>)}     
 </>
+
+
   )
 }
 

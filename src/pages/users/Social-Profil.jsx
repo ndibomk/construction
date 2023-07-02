@@ -61,9 +61,7 @@ const SocialProfil = () => {
             <MDBBreadcrumbItem>
               <a href="/social">All Users</a>
             </MDBBreadcrumbItem>
-            <MDBBreadcrumbItem>
-              <a href={`/users-dashboard/${user?.result?.name}`}>Dashboard</a>
-            </MDBBreadcrumbItem>
+          
             <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
           </MDBBreadcrumb>
         </MDBCol>
@@ -80,10 +78,14 @@ const SocialProfil = () => {
                 fluid
               />
               <div className="d-flex justify-content-center mb-2">
-                <MDBBtn>Follow</MDBBtn>
+              <a
+                style={{ color: "black" }}
+                href={`https://wa.me/${users.phone}`}
+              >
                 <MDBBtn outline className="ms-1">
                   Message
                 </MDBBtn>
+                </a>
               </div>
             </MDBCardBody>
           </MDBCard>

@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const baseURL = "https://erytyu.onrender.com/api/";
-const baseURL1 = "https://erytyu.onrender.com/stats/";
+const baseURL = "https://hustle-kenya-7azi.onrender.com/api/";
+const baseURL1 = "https://hustle-kenya-7azi.onrender.com/api/";
 
 const initialState = {
   todos: [],
@@ -34,7 +34,7 @@ export const getTodos = createAsyncThunk(
   "todos/getTodos",
   async (id = null, { rejectWithValue }) => {
     try {
-      const response = await axios.get(baseURL1 + "pending");
+      const response = await axios.get(baseURL1 + "todos");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -46,7 +46,7 @@ export const getTodos1 = createAsyncThunk(
   "todos/getTodos",
   async (id = null, { rejectWithValue }) => {
     try {
-      const response = await axios.get(baseURL1 + "succes");
+      const response = await axios.get(baseURL1 + "todos");
       return response.data;
     } catch (error) {
       console.log(error);

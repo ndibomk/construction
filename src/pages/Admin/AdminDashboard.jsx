@@ -59,6 +59,10 @@ const AdminDashboard = () => {
           {" "}
           <Link to="/orders">Orders</Link>
         </p>
+        <p>
+          {" "}
+          <Link to="/all-transactions">Mpesa Activation</Link>
+        </p>
       </div>
       <div className="admin-right">
         <h2>Statistics</h2>

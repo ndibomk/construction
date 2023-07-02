@@ -60,9 +60,10 @@ export default function ProfilePage() {
     fetchData();
   }, []);
   const followUser = () => {
-    fetch("https://hustle-kenya-7azi.onrender.com/users/follow", {
+    fetch("http://localhost:5000/users/follow", {
       method: "put",
       headers: {
+        'Access-Control-Allow-Origin':'*',
         "content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("profile"),
       },
@@ -87,9 +88,9 @@ export default function ProfilePage() {
               <MDBBreadcrumbItem>
                 <a href="/social">All Users</a>
               </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href={`/users-dashboard/${user?.result?.name}`}>Dashboard</a>
-              </MDBBreadcrumbItem>
+              {/* <MDBBreadcrumbItem> */}
+                {/* <a href={`/users-dashboard/${user?.result?.name}`}>Dashboard</a> */}
+              {/* </MDBBreadcrumbItem> */}
               <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
@@ -108,10 +109,14 @@ export default function ProfilePage() {
                 />
 
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn onClick={() => followUser()}>Follow</MDBBtn>
+                <a
+                style={{ color: "black" }}
+                href={`https://wa.me/${user?.result?.phone}`}
+              >
                   <MDBBtn outline className="ms-1">
                     Message
                   </MDBBtn>
+                  </a>
                 </div>
               </MDBCardBody>
             </MDBCard>

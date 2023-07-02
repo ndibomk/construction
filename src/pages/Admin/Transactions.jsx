@@ -7,7 +7,25 @@ import { deleteTour } from "../../redux/features/productSlice";
 import {toast} from 'react-toastify'
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import {
+    deleteTodo,
+    getTodos,
+    rejectUser,
+    updateTodo,
+  } from "../../redux/features/todosSlice";
+  import moment from "moment";
+  import { useNavigate } from "react-router-dom";
 function ResponsiveExample() {
+
+
+     const [todo, setTodo] = useState({
+    status: false,
+    isComplete: false,
+  });
+
+
+
+
   const [users, setUsers] = useState([]);
   function compare(a, b) {
     if (a._id < b._id) {
@@ -21,19 +39,60 @@ function ResponsiveExample() {
   const dispatch=useDispatch()
   const { user } = useSelector((state) => ({ ...state.auth }));
 const[loading, setLoading]=useState(true)
-  console.log(loading);
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this tour ?")) {
       dispatch(deleteTour({ id, toast }));
     }
   };
+  const todosState = useSelector((state) => state.todosState);
+  const { todos } = todosState;
 
+  useEffect(() => {
+    dispatch(getTodos());
+  }, [dispatch]);
+console.log(todos);
+//   const handleDelete = (id) => {
+//     dispatch(deleteTodo(id));
+//   };
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    window.alert("are sure  you want to temporarily deactivate  this user");
+    if (todo._id) {
+      dispatch(updateTodo(todo));
+     
+    }
+    setTodo({
+      isComplete: false,
+      status: false,
+    });
+  };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(getTodos());
+  }, [dispatch]);
+
+  const handleDelete1 = (id) => {
+    dispatch(deleteTodo(id));
+  };
+  const handleSubmit1 = (e) => {
+    e.preventDefault();
+    window.alert("are sure  you want to activate this user");
+    if (todo._id) {
+      dispatch(rejectUser(todo));
+      
+    }
+    setTodo({
+      isComplete: false,
+      status: false,
+    });
+  };
   const id = user?.result?._id;
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await axios.get(
-          `https://hustle-kenya-7azi.onrender.com/products/userProjects/${id}`
+          `https://hustle-kenya-7azi.onrender.com/mpesa/stkPush`
         );
         res.data.sort(compare);
         // const result = res.data.filter((_, index) => index < 30);
@@ -54,12 +113,7 @@ const[loading, setLoading]=useState(true)
     <>
        {loading ? (
       <>
-     <Stack style={{
-              display: "flex",
-              marginTop: "5rem",
-              alignItems: "center",
-              justifyContent: "center",
-            }} spacing={1}>
+     <Stack spacing={1}>
        {/* For variant="text", adjust the height via font-size */}
        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
        {/* For other variants, adjust the size with `width` and `height` */}
@@ -74,41 +128,51 @@ const[loading, setLoading]=useState(true)
         <tr>
           {/* {Array.from({ length: 5 }).map((_, index) => ( */}
           <>
-            <th>Product name</th>
-            <th>Price</th>
-            <th>DiscountPrice</th>
-            <th>DiscountPercentage</th>
-            <th>Category</th>
-            <th>Age in Months</th>
+            <th> name</th>
+            <th>Amount</th>
+            <th>Phone</th>
+
+            <th>Email</th>
             <th>Status</th>
-            <th>Image</th>
+           
+            <th>Activate</th>
+            <th>Reject</th>
             <th>Delete</th>
-            <th>Update</th>
+
+            
           </>
 
           {/* ))} */}
         </tr>
       </thead>
       <tbody>
-        {users.map((item, index) => (
+        {todos.map((item, index) => (
           <tr>
 
             <>
-              <td key={index}>{item.item}</td>
-              <td key={index}>{item.price}</td>
-              <td key={index}>{item.discountPrice}</td>
-              <td key={index}>{item.discountPercentage}</td>
-              <td key={index}>{item.category}</td>
-              <td key={index}>{item.age} </td>
-              <td key={index}>{item.status}</td>
+            <td key={index}>{item.name}</td>
+            <td key={index}>{item.amount}</td>
+            <td key={index}>{item.phone}</td>
+            <td key={index}>{item.email}</td>
+              <td key={index}>{item.isComplete===false ? 'Pending':'Active'}</td>
               <td key={index}>
-                <img style={{width:'2rem'}} src={item.images[0]?.url} alt="" />
-              </td>
-              <td key={index} style={{color:'red',cursor:'pointer'}} onClick={() => handleDelete(item._id)} >Delete</td>
-              <Link to='/new-product'>
-              <td key={index} style={{color:'blue'}}>Update</td>
+              <form onSubmit={handleSubmit1} className="pending-btns">
+              {todosState.getTodosStatus === "pending" ? "loading" : null}
 
-              </Link>
+              <button
+                className="btn-admin"
+                type="submit"
+                onClick={() => setTodo({ ...todo })}
+              >
+                <h6 style={{}}>Activate user</h6>
+              </button>
+            </form>
+              </td>
+              <td key={index}>Reject</td>
+              <td key={index} style={{color:'red',cursor:'pointer'}} onClick={() => handleDelete(item._id)} >Delete</td>
+              
+              
+
             </>
           </tr>
         ))}

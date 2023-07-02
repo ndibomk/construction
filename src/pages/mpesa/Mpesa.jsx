@@ -24,7 +24,7 @@ const Mpesa = () => {
   const { user } = useSelector((state) => ({ ...state.auth }));
   const initalState = {
     phone: user?.result?.phone,
-    amount: 70,
+    amount: 50,
     name: user?.result?.name,
     email: user?.result?.email,
     Order_ID: user?.result?._id,
@@ -95,7 +95,12 @@ navigate('/new-product')
   return (
     <div>
 {loading ? (
-          <Stack spacing={1}>
+          <Stack style={{
+            display: "flex",
+            marginTop: "5rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }} spacing={1}>
             {/* For variant="text", adjust the height via font-size */}
             <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
             {/* For other variants, adjust the size with `width` and `height` */}
@@ -105,8 +110,8 @@ navigate('/new-product')
           </Stack>
         ) : (<>
       <section>
-        <div className="row">
-          <div className="col-md-6 mb-4">
+        <div className="row df">
+          <div className="col-md-6 mb-4 ">
             <div className="card mb-4">
               <div className="card-header py-3">
                 <h5 className="mb-0">Biling details</h5>
@@ -120,8 +125,7 @@ navigate('/new-product')
               </div>
               <div className="card-body">
                 <form onSubmit={handleSubmit}>
-                  <hr className="my-4" />
-
+                 
                   <div className="form-check mb-4">
                     <input
                       className="form-check-input"
@@ -136,8 +140,6 @@ navigate('/new-product')
                   </div>
 
                   <hr className="my-4" />
-
-                  <h5 className="mb-4">Payment</h5>
                   <div class="card mb-4">
                     <div class="card-header py-3">
                       <h5 class="mb-0">Summary</h5>
@@ -180,18 +182,7 @@ navigate('/new-product')
                     </label>
                   </div>
 
-                  <div className="form-check mb-4">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="checkoutForm5"
-                    />
-                    <label className="form-check-label" for="checkoutForm5">
-                      Paypal
-                    </label>
-                  </div>
-
+                 
                   <div className="row mb-4">
                     {/* <div className="col"> */}
                     {/* <div className="form-outline"> */}
@@ -221,36 +212,9 @@ navigate('/new-product')
             </div>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <div class="card mb-4">
-              <div class="card-header py-3">
-                <h5 class="mb-0">Summary</h5>
-              </div>
-              <div class="card-body">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                    Post per Product is
-                    <span>ksh50.00</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                    Transaction Cost
-                    <span>ksh0.00</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                    <div>
-                      <strong>Total amount</strong>
-                      <strong>
-                        <p class="mb-0">(including transitions cost)</p>
-                      </strong>
-                    </div>
-                    <span>
-                      <strong>ksh50.00</strong>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+         
+           
+         
         </div>
         
       </section>

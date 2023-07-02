@@ -23,7 +23,6 @@ import { setLogout } from "../redux/features/authSlice";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = [
   { one: "Profile" },
-  { two: "Account" },
   { three: "Dashboard" },
   { four: "Login" },
   { five: "New Product" },
@@ -152,9 +151,50 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+
+
+                </MenuItem> */}
+              {/* ))} */}
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                  {user?.result?._id && (
+                    <Link to="/profile">
+                      <Typography textAlign="center">{setting.one}</Typography>
+                    </Link>
+                  )}
+                  {user?.result?._id && (
+                    <Link to={`/users-dashboard/${user?.result?.name}`}>
+                      <Typography textAlign="center">
+                        {setting.three}
+                      </Typography>
+                    </Link>
+                  )}
+                  {user?.result?.admin === true && (
+                    <Link to={`/admin-dashboard/${user?.result?.name}`}>
+                      {setting.seven}
+                    </Link>
+                  )}
+                  {user?.result?._id ? (
+                    <>
+                      <Typography
+                        onClick={() => handleLogout()}
+                        textAlign="center"
+                      >
+                        {setting.six}
+                      </Typography>
+                      <Link to="/mpesa-payment">
+                        <Typography textAlign="center">
+                          {setting.five}
+                        </Typography>
+                      </Link>
+                    </>
+                  ) : (
+                    <Link to="/login">
+                      <Typography textAlign="center">{setting.four}</Typography>
+                    </Link>
+                  )}
                 </MenuItem>
               ))}
             </Menu>
@@ -243,7 +283,6 @@ function ResponsiveAppBar() {
                       <Typography textAlign="center">{setting.one}</Typography>
                     </Link>
                   )}
-                  <Typography textAlign="center">{setting.two}</Typography>
                   {user?.result?._id && (
                     <Link to={`/users-dashboard/${user?.result?.name}`}>
                       <Typography textAlign="center">

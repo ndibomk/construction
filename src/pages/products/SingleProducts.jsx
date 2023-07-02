@@ -80,9 +80,7 @@ const [users, setUsers] = React.useState([]);
             </Card.Text>
             <Card.Footer>
               <p>{users.description}</p>
-              <Button style={{ width: "100%" }} variant="primary">
-                Buy
-              </Button>
+             
               <a
                 style={{ color: "black" }}
                 href={`https://wa.me/${users.tell}`}
@@ -91,7 +89,7 @@ const [users, setUsers] = React.useState([]);
                   style={{ width: "100%", marginTop: "1rem" }}
                   variant="primary"
                 >
-                  Whatsapp
+                 Buy the Item
                 </Button>
               </a>
             </Card.Footer>

@@ -65,7 +65,6 @@ let hours = d.getHours();
 let currenDate = date.getTime('h');
 const currentTime=new Date();
   
-  const specificTime=moment(user.createdAt).format('LT')
   const id = user?.result?._id;
   useEffect(() => {
     async function fetchData() {

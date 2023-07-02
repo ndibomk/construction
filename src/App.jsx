@@ -23,6 +23,7 @@ import SocialPlace from "./pages/users/SocialPlace";
 import SocialProfil from "./pages/users/Social-Profil";
 import Protected from "./services/PrivateRoute";
 import Mpesa from "./pages/mpesa/Mpesa";
+import Transactions from "./pages/Admin/Transactions";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -39,81 +40,27 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route
-            path="/social"
-            element={
-              <Protected isLoggedIn={user}>
-                <SocialPlace />
-              </Protected>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <Protected isLoggedIn={user}>
-                <Profile />
-              </Protected>
-            }
-          />{" "}
-          <Route
-            path="/social"
-            element={
-              <Protected isLoggedIn={user}>
-                <SocialProfil />
-              </Protected>
-            }
-          />{" "}
-          <Route
-            path="/social-profile/:id"
-            element={
-              <Protected isLoggedIn={user}>
-                <SocialProfil />
-              </Protected>
-            }
-          />
+          <Route path="/social" element={<SocialPlace />} />
+          <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/social" element={<SocialProfil />} />{" "}
+          <Route path="/social-profile/:id" element={<SocialProfil />} />
           <Route
             path={`/users-dashboard/${user?.result?.name}`}
-            element={
-              <Protected isLoggedIn={user}>
-                <Dashboard />
-              </Protected>
-            }
+            element={<Dashboard />}
           />
+          <Route path="new-product" element={<NewProduct />} />
           <Route
-            path='new-product'
-            element={
-              <Protected isLoggedIn={user}>
-                <NewProduct />
-              </Protected>
-            }
+            path={`/admin-dashboard/${user?.result?.name}`}
+            element={<AdminDashboard />}
           />
           <Route
             path={`/admin-dashboard/${user?.result?.name}`}
-            element={
-              <Protected isLoggedIn={user}>
-                <AdminDashboard />
-              </Protected>
-            }
+            element={<AdminDashboard />}
           />
-            <Route
-    path={`/admin-dashboard/${user?.result?.name}`}
-    element={
-      <Protected isLoggedIn={user}>
-        <AdminDashboard />
-      </Protected>
-    }
-  />
-    <Route
-    path='/users'
-    element={
-      <Protected isLoggedIn={user}>
-        <Users />
-      </Protected>
-    }
-  />
+          <Route path="/users" element={<Users />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           <Route path="/login" element={<Login />} />
-          <Route path="/mpesa-payment" element={<Mpesa/>} />
+          <Route path="/mpesa-payment" element={<Mpesa />} />
           {/* <Route path="/social" element={<SocialPlace/>}/> */}
           {/* <Route path="/social-profile/:id" element={<SocialProfil />} /> */}
           <Route path="/single-product/:id" element={<SingleProducts />} />
@@ -127,6 +74,7 @@ function App() {
           {/* // /> */}
           {/* <Route path="/users" element={<Users />} /> */}
           <Route path="/all-products" element={<AllProducts />} />
+          <Route path="/all-transactions" element={<Transactions />} />
         </Routes>
       </BrowserRouter>
     </>
