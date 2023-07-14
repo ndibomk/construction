@@ -1,3 +1,67 @@
+/* top-bar */
+
+.top-bar{
+  background-color: black;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  padding-top: 1rem;
+}
+
+.main-home-component{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  padding-top: 1rem; 
+}
+.left-home-component{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 40%;
+}
+.left-home-component h1{
+  font-size: 3rem;
+  color: blueviolet;
+}
+.left-home-component h2{
+  font-size: 2rem;
+}
+.left-home-component h2{
+  font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .input-form{
   display: flex;
   align-items: center;

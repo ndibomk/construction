@@ -20,15 +20,21 @@ import CallIcon from "@mui/icons-material/Call";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
+import { Call, Email, WhatsApp, WhatshotOutlined } from "@mui/icons-material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = [
-  { one: "Profile" },
-  { three: "Dashboard" },
+  { one: "Home" },
+  { seven: "About Us" },
+  { eight: "Projects" },
+  { nine: "Contact" },
   { four: "Login" },
+  { three: "Dashboard" },
   { five: "New Product" },
-  { seven: "Admin" },
-
   { six: "Logout" },
+  
+  
+
+ 
 ];
 
 function ResponsiveAppBar() {
@@ -159,11 +165,24 @@ function ResponsiveAppBar() {
               {/* ))} */}
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  {user?.result?._id && (
-                    <Link to="/profile">
+                  <><Link to="/">
                       <Typography textAlign="center">{setting.one}</Typography>
                     </Link>
-                  )}
+                  </>
+                  <><Link to="/about">
+                      <Typography textAlign="center">{setting.seven}</Typography>
+                    </Link>
+                  </>
+                  <><Link to="/projects">
+                      <Typography textAlign="center">{setting.eight}</Typography>
+                    </Link>
+                  </>
+                  <><Link to="/contact">
+                      <Typography textAlign="center">{setting.nine}</Typography>
+                    </Link>
+                  </>
+                   
+                 
                   {user?.result?._id && (
                     <Link to={`/users-dashboard/${user?.result?.name}`}>
                       <Typography textAlign="center">
@@ -201,15 +220,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search for items ..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          
           <Typography
             variant="h5"
             noWrap
@@ -229,20 +240,36 @@ function ResponsiveAppBar() {
           <Box
             sx={{ flexGrow: 1, ml: 20, display: { xs: "none", md: "flex" } }}
           >
-            <Typography>Customer care: 0789312381</Typography>
-            <Typography style={{ marginLeft: ".5rem" }}>
-              <a style={{ color: "black" }} href="https://wa.me/0757198515">
-                <WhatsAppIcon />
-              </a>
-            </Typography>
-
-            <Typography style={{ marginLeft: ".5rem" }}>
-              <a style={{ color: "black" }} href="href=tel:+254757198515">
-                <CallIcon />
-              </a>
-            </Typography>
+            <div style={{display:'flex', gap:'3rem',textDecoration:'none',listStyle:'none'}}>
+            <Link style={{textDecoration:'none',listStyle:'none'}} to='/'>
+              <Typography>
+              Home
+              </Typography>
+             </Link>
+             <Link style={{textDecoration:'none',listStyle:'none'}} to='/about'>
+              <Typography>
+             About us
+              </Typography>
+             </Link>
+             <Link style={{textDecoration:'none',listStyle:'none'}} to='/projects'>
+              <Typography>
+              Projects
+              </Typography>
+             </Link >
+             <Link style={{textDecoration:'none',listStyle:'none'}} to='/contact'>
+              <Typography>
+             Contact
+              </Typography>
+             </Link>
+            </div>
+           
           </Box>
-
+          <Box style={{display:'flex', gap:'3rem',textDecoration:'none',listStyle:'none',
+        flexWrap:'wrap'}} sx={{ flexGrow: 0 }}>
+           <WhatsApp/>
+           <Email/>
+           <Call/>
+          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton
@@ -278,23 +305,12 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  {user?.result?._id && (
-                    <Link to="/profile">
+                   <Link to="/login">
                       <Typography textAlign="center">{setting.one}</Typography>
                     </Link>
-                  )}
-                  {user?.result?._id && (
-                    <Link to={`/users-dashboard/${user?.result?.name}`}>
-                      <Typography textAlign="center">
-                        {setting.three}
-                      </Typography>
-                    </Link>
-                  )}
-                  {user?.result?.admin === true && (
-                    <Link to={`/admin-dashboard/${user?.result?.name}`}>
-                      {setting.seven}
-                    </Link>
-                  )}
+                 
+                
+                 
                   {user?.result?._id ? (
                     <>
                       <Typography
@@ -303,16 +319,16 @@ function ResponsiveAppBar() {
                       >
                         {setting.six}
                       </Typography>
-                      <Link to="/mpesa-payment">
-                        <Typography textAlign="center">
-                          {setting.five}
-                        </Typography>
-                      </Link>
+                      
                     </>
                   ) : (
+                    <>
+                   
                     <Link to="/login">
                       <Typography textAlign="center">{setting.four}</Typography>
                     </Link>
+                    </>
+                    
                   )}
                 </MenuItem>
               ))}

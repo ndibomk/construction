@@ -24,6 +24,7 @@ import SocialProfil from "./pages/users/Social-Profil";
 import Protected from "./services/PrivateRoute";
 import Mpesa from "./pages/mpesa/Mpesa";
 import Transactions from "./pages/Admin/Transactions";
+import Topbar from "./components/Topbar";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -36,45 +37,14 @@ function App() {
     <>
       <BrowserRouter>
         <ToastContainer />
+        <Topbar/>
         <ResponsiveAppBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/social" element={<SocialPlace />} />
-          <Route path="/profile" element={<Profile />} />{" "}
-          <Route path="/social" element={<SocialProfil />} />{" "}
-          <Route path="/social-profile/:id" element={<SocialProfil />} />
-          <Route
-            path={`/users-dashboard/${user?.result?.name}`}
-            element={<Dashboard />}
-          />
-          <Route path="new-product" element={<NewProduct />} />
-          <Route
-            path={`/admin-dashboard/${user?.result?.name}`}
-            element={<AdminDashboard />}
-          />
-          <Route
-            path={`/admin-dashboard/${user?.result?.name}`}
-            element={<AdminDashboard />}
-          />
-          <Route path="/users" element={<Users />} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
+         
           <Route path="/login" element={<Login />} />
-          <Route path="/mpesa-payment" element={<Mpesa />} />
-          {/* <Route path="/social" element={<SocialPlace/>}/> */}
-          {/* <Route path="/social-profile/:id" element={<SocialProfil />} /> */}
-          <Route path="/single-product/:id" element={<SingleProducts />} />
-          {/* <Route */}
-          {/* // path={`/users-dashboard/${user?.result?.name}`} */}
-          {/* // element={<Dashboard />} */}
-          {/* // /> */}
-          {/* <Route */}
-          {/* // path={`/admin-dashboard/${user?.result?.name}`} */}
-          {/* // element={<AdminDashboard />} */}
-          {/* // /> */}
-          {/* <Route path="/users" element={<Users />} /> */}
-          <Route path="/all-products" element={<AllProducts />} />
-          <Route path="/all-transactions" element={<Transactions />} />
+         
         </Routes>
       </BrowserRouter>
     </>
