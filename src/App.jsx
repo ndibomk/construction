@@ -8,22 +8,11 @@ import Register from "./pages/Register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import NewProduct from "./pages/products/NewProducts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
-import Dashboard from "./pages/users/Dashboard";
-import SingleProducts from "./pages/products/SingleProducts";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
-import Users from "./pages/Admin/Users";
-import AllProducts from "./pages/Admin/AllProducts";
-import Profile from "./pages/users/Profile";
-import SocialPlace from "./pages/users/SocialPlace";
-import SocialProfil from "./pages/users/Social-Profil";
-import Protected from "./services/PrivateRoute";
-import Mpesa from "./pages/mpesa/Mpesa";
-import Transactions from "./pages/Admin/Transactions";
+
 import Topbar from "./components/Topbar";
 function App() {
   const dispatch = useDispatch();
