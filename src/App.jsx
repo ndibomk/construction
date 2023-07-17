@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
-
+import Gallerytwo from "./pages/users/Gallerytwo";
 import Topbar from "./components/Topbar";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -30,7 +30,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <ToastContainer />
+       <Gallerytwo/>
+        {/* <ToastContainer />
         <Topbar/>
         <ResponsiveAppBar />
         <Routes>
@@ -44,7 +45,7 @@ function App() {
           <Route path="/login" element={<Login />} />
          
         </Routes>
-        <Footer/>
+        <Footer/> */}
       </BrowserRouter>
     </>
   );

@@ -341,16 +341,8 @@ height: 2rem;
   margin-left: auto;
   margin-right: auto;
 }
-.findmain{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-  gap: 2%;
-  margin-right: auto;
-  margin-left: auto;
-  width: 85%;
-}
+
+.a
 .allcards {
   width: 95%;
   margin-left: auto;
@@ -394,11 +386,11 @@ height: 2rem;
 .inputs{
   width: 60%;
   border: rgb(0, 0, 0) 1px solid;
-  height: 30px;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  height: 50px !important;
+  border-radius: 2px;
+  padding: 10px !important;
+  margin-bottom: 10px !important;
+  margin-right: 10px !important;
  
   
   
@@ -414,54 +406,17 @@ height: 2rem;
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 50px;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-top: 40px;
+  padding-bottom: 40px;
  
 }
 .inputs:focus{
   outline: none;
 }
-.findicon{
-  width: 48px;
-  height: 35px;
-  background-color:aliceblue;
-  border-radius: 50%;
-  text-align: center;
-  padding-top: 13px;
-color: rgb(203, 215, 33);
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 20px;
-}
-.findiconmain{
-  width: 15px;
- color: yellow !important;
 
-}
-.cardfind{
-  width: 30%;
-  box-shadow: 0 1px 3px rgba(25, 28, 53, 0.2); 
-  background-color: #ffffff; 
-  border-radius: 10px;  
 
-  transform: translateY(-10px); 
-  transition: transform 0.3s ease-in-out;
-  text-align: center;
-  padding: 35px;
-  height: 220px;
-
-}
-
-.cardfind h1{
-  margin-bottom: 20px;
-  color: rgb(28, 28, 61) !important;
- 
-}
-.cardfind p{
-  margin-bottom: 10px;
-  color: rgb(86, 86, 50);
-}
 .oursucess{
  
   /* height: 300px; */
@@ -490,10 +445,17 @@ margin-top: 10%;
 .cardsuccess h1{
   font-size: 40px;
 }
+.fimdmain1{
+ padding-top: 70px;
+}
 #textarea{
 width:100%;
-height:200px;
+height:200px !important;
 
+}
+#btnquestion{
+  width:100% !important;
+  background-color: rgb(150, 104, 104);
 }
 @media(max-width:700px){
 
@@ -514,39 +476,40 @@ height:200px;
     font-size: 30px !important;
   }
   .inputs{
-    width: 90%;
+    width: 100% !important;
   }
   .inputdiv{
     flex-direction: column !important;
   }
   #textarea{
-    width:90% !important;
+    width:100% !important;
   }
   .questionform{
     width: 90% !important;
   }
-  .findmain {
-    flex-direction: column;
-   
-    justify-content: space-evenly;
-
-  }
-  .fimdmain1{
-    margin: 0%;
-    width: 80% !important;
-    margin-top: 20px;
-  }
-  .cardfind{
-    width: 100%;
-    margin-bottom: 20px;
  
-   }
    .about-box{
     width: 100% !important;
    }
    .about-main-page{
     margin-top: 2rem;
   }
+  .findmain {
+    flex-direction: column !important;
+   
+    justify-content: space-evenly;
+
+  }
+  .fimdmain1{
+    margin: 0%;
+    width: 100% !important;
+    margin-top: 20px;
+  }
+  .cardfind{
+    width: 100% !important;
+    margin-bottom: 20px;
+ 
+   }
 
  
    
@@ -569,4 +532,124 @@ height:200px;
   gap: 3rem;
   padding: 2rem;
   flex-wrap: wrap;
+}
+.findmain{
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  gap: 2%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
+}
+.findicon{
+  width: 48px;
+  height: 35px;
+  background-color:aliceblue;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 13px;
+color: rgb(203, 215, 33);
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 20px;
+}
+.findiconmain{
+  width: 15px;
+ color: yellow !important;
+
+}
+.cardfind{
+  width: 32%;
+  box-shadow: 0 1px 3px rgba(25, 28, 53, 0.2); 
+  background-color: #ffffff; 
+  border-radius: 10px;  
+
+  transform: translateY(-10px); 
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  padding: 35px;
+  height: 250px;
+
+}
+
+.cardfind h1{
+  margin-bottom: 20px;
+  color: rgb(28, 28, 61) !important;
+ 
+}
+.cardfind p{
+  margin-bottom: 10px;
+  color: rgb(86, 86, 50);
+}
+.galleryimage{
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover;
+}
+.gallerycard{
+  border: white 1px solid;
+  margin-right: 2px;
+  margin-left: 2px;
+
+}
+.galleryphotos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 20px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  /* margin: 0 auto;  */
+  justify-content: center;
+}
+.galleryheader{
+  color: rgb(87, 53, 53);
+  margin-top: 50px;
+  text-align: center;
+}
+
+.enlarged-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(66, 60, 60, 0.8);
+  z-index: 9999;
+}
+
+.enlarged-image {
+  width: 500px;
+  height: 500px;
+  opacity: 0.9;
+  margin-top: 50px;
+  border: white 1px solid;
+  object-fit: cover;
+}
+.cardmore{
+  width: 50%;
+  box-shadow: 0 1px 3px rgba(25, 28, 53, 0.2); 
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+  padding: 20px !important;
+  /* text-align: center; */
+  border-radius: 10px;
+  margin-top: 20px;
+ 
+
+}
+.cardmore img {
+  height: 400px;
+  width: 100%;
+}
+.cardmore h3 {
+ font-size: 25px;
+ margin-top: 20px;
 }
