@@ -6,18 +6,22 @@ const Home = () => {
     <div className="home-main-comp">
     <div className='main-home-component'>
 <div className="left-home-component">
-<h1>The Best Buildings In Kenya</h1>
+<h1> <span style={{color:'blueviolet'}} >Edyche Builders Ltd</span > ,<br /> 
+The  Best Buildings & Construction Company  In Kenya</h1>
 <h2>Creating Your Dream House with Affection</h2>
-<p>The most important distinguishing feature of thethe construction of our buildings is the absence of stereotypes</p>
-<button className="btn">Discover Projects</button>
+<button className="btn"> <p 
+ style={{marginBottom:'0rem'}}>Discover Projects</p> </button>
 </div>
 <div className="left-home-component">
   <img src="https://arkio-react.wpocean.com/static/media/p2.2b3319864ab05fdaa9bd.jpg" alt="" />
 </div>
 </div>
 {/* Cards */}
-<h2 style={{textAlign:'center'}}>Our Constructions</h2>
+<div style={{textAlign:'center',marginTop:'4rem'}} >
+<h2 style={{textAlign:'center',marginTop:'1rem'}}>Our Constructions</h2>
 <ProjectsCard/>
+</div>
+
     
     </div>
   )

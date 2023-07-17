@@ -14,6 +14,10 @@ import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
 
 import Topbar from "./components/Topbar";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Footer from "./components/Footer";
+import Services from "./pages/Services";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -29,12 +33,16 @@ function App() {
         <Topbar/>
         <ResponsiveAppBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/services" element={<Services />} />
          
           <Route path="/login" element={<Login />} />
          
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );

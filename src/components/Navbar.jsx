@@ -31,10 +31,7 @@ const settings = [
   { three: "Dashboard" },
   { five: "New Product" },
   { six: "Logout" },
-  
-  
-
- 
+  {ten:"services"},
 ];
 
 function ResponsiveAppBar() {
@@ -106,7 +103,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar style={{ color: "black ", background: "white" }} position="static">
+    <AppBar style={{ color: "black ", background: "white" ,position:'static',zIndex:'100'}} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -119,13 +116,14 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              fontWeight: 900,
+              fontSize: "2rem",
+              letterSpacing: ".0rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Edyche <span style={{ color: "red" }}>Builders</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -165,24 +163,36 @@ function ResponsiveAppBar() {
               {/* ))} */}
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <><Link to="/">
+                  <>
+                    <Link to="/">
                       <Typography textAlign="center">{setting.one}</Typography>
                     </Link>
                   </>
-                  <><Link to="/about">
-                      <Typography textAlign="center">{setting.seven}</Typography>
+                  <>
+                    <Link to="/about">
+                      <Typography textAlign="center">
+                        {setting.seven}
+                      </Typography>
                     </Link>
                   </>
-                  <><Link to="/projects">
-                      <Typography textAlign="center">{setting.eight}</Typography>
+                  <>
+                    <Link to="/projects">
+                      <Typography textAlign="center">
+                        {setting.eight}
+                      </Typography>
                     </Link>
                   </>
-                  <><Link to="/contact">
+                  <>
+                    <Link to="/services">
+                      <Typography textAlign="center">{setting.ten}</Typography>
+                    </Link>
+                  </>
+                  <>
+                    <Link to="/contact">
                       <Typography textAlign="center">{setting.nine}</Typography>
                     </Link>
                   </>
-                   
-                 
+
                   {user?.result?._id && (
                     <Link to={`/users-dashboard/${user?.result?.name}`}>
                       <Typography textAlign="center">
@@ -202,6 +212,7 @@ function ResponsiveAppBar() {
                         textAlign="center"
                       >
                         {setting.six}
+                        
                       </Typography>
                       <Link to="/mpesa-payment">
                         <Typography textAlign="center">
@@ -220,7 +231,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          
+
           <Typography
             variant="h5"
             noWrap
@@ -240,35 +251,66 @@ function ResponsiveAppBar() {
           <Box
             sx={{ flexGrow: 1, ml: 20, display: { xs: "none", md: "flex" } }}
           >
-            <div style={{display:'flex', gap:'3rem',textDecoration:'none',listStyle:'none'}}>
-            <Link style={{textDecoration:'none',listStyle:'none'}} to='/'>
-              <Typography>
-              Home
-              </Typography>
-             </Link>
-             <Link style={{textDecoration:'none',listStyle:'none'}} to='/about'>
-              <Typography>
-             About us
-              </Typography>
-             </Link>
-             <Link style={{textDecoration:'none',listStyle:'none'}} to='/projects'>
-              <Typography>
-              Projects
-              </Typography>
-             </Link >
-             <Link style={{textDecoration:'none',listStyle:'none'}} to='/contact'>
-              <Typography>
-             Contact
-              </Typography>
-             </Link>
+            <div
+              style={{
+                display: "flex",
+                gap: "3rem",
+                textDecoration: "none",
+                listStyle: "none",
+              }}
+            >
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/"
+              >
+                <Typography>Home</Typography>
+              </Link>
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/about"
+              >
+                <Typography>About us</Typography>
+              </Link>
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/projects"
+              >
+                <Typography>Projects</Typography>
+              </Link>
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/services"
+              >
+                <Typography>Services</Typography>
+              </Link>
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/contact"
+              >
+                <Typography>Contact</Typography>
+              </Link>
             </div>
-           
           </Box>
-          <Box style={{display:'flex', gap:'3rem',textDecoration:'none',listStyle:'none',
-        flexWrap:'wrap'}} sx={{ flexGrow: 0 }}>
-           <WhatsApp/>
-           <Email/>
-           <Call/>
+          <Box
+            style={{
+              display: "flex",
+              gap: "3rem",
+              textDecoration: "none",
+              listStyle: "none",
+              flexWrap: "wrap",
+            }}
+            sx={{ flexGrow: 0 }}
+          >
+            <a href="https://wa.me/0716 483268" className="me-4 text-reset">
+              <WhatsApp />
+            </a>
+            <a href="mailto:edyche@gmail.com">
+              <Email />
+            </a>
+
+            <a href="tel:+254 716 483268">
+              <Call />
+            </a>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -305,12 +347,10 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                   <Link to="/login">
-                      <Typography textAlign="center">{setting.one}</Typography>
-                    </Link>
-                 
-                
-                 
+                  <Link to="/login">
+                    <Typography textAlign="center">{setting.one}</Typography>
+                  </Link>
+
                   {user?.result?._id ? (
                     <>
                       <Typography
@@ -319,16 +359,15 @@ function ResponsiveAppBar() {
                       >
                         {setting.six}
                       </Typography>
-                      
                     </>
                   ) : (
                     <>
-                   
-                    <Link to="/login">
-                      <Typography textAlign="center">{setting.four}</Typography>
-                    </Link>
+                      <Link to="/login">
+                        <Typography textAlign="center">
+                          {setting.four}
+                        </Typography>
+                      </Link>
                     </>
-                    
                   )}
                 </MenuItem>
               ))}
