@@ -18,6 +18,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Services from "./pages/Services";
+import Gallery from "./pages/users/Gallery";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -38,6 +39,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/photos" element={<Gallery />} />
          
           <Route path="/login" element={<Login />} />
          

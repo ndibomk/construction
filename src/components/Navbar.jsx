@@ -254,7 +254,7 @@ function ResponsiveAppBar() {
             <div
               style={{
                 display: "flex",
-                gap: "3rem",
+                gap: "2rem",
                 textDecoration: "none",
                 listStyle: "none",
               }}
@@ -282,6 +282,12 @@ function ResponsiveAppBar() {
                 to="/services"
               >
                 <Typography>Services</Typography>
+              </Link>
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to="/photos"
+              >
+                <Typography>Gallery</Typography>
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
